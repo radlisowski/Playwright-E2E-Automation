@@ -33,8 +33,3 @@ test.describe('Validate all objects on the pages', () => {
 
 })
 
-test.describe('Validate user access via hidden login page', () => {
-
-
-})
-
