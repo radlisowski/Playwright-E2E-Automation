@@ -7,9 +7,17 @@ class HomePage {
         this.projectsButton = page.locator(`nav.navbar a:has-text("projects")`);
         this.aboutButton = page.locator(`nav.navbar a:has-text("about")`);
         this.homeButton = page.locator(`nav.navbar a:has-text("home")`);
-        this.pageTitle = page.locator('xxx');
         this.githubButton = page.locator(`nav.footer a:has-text("github")`);
         this.linkedinButton = page.locator(`nav.footer a:has-text("linkedin")`);
+        this.logo = page.locator(`.hero-box`)
+        this.buttons = [
+            this.homeButton,
+            this.blogButton,
+            this.projectsButton,
+            this.aboutButton,
+            this.githubButton,
+            this.linkedinButton
+        ];
     }
 
     async navigate() {
@@ -17,16 +25,17 @@ class HomePage {
     }
 
     async validatePageTitle() {
-        await expect(this.pageTitle).toHaveText('Rad Lisowski');
+        await expect(this.page.title()).resolves.toBe('Rad Lisowski');
     }
 
     async validateNavigationButtons() {
-        await expect(this.homeButton).toBeVisible();
-        await expect(this.blogButton).toBeVisible();
-        await expect(this.projectsButton).toBeVisible();
-        await expect(this.aboutButton).toBeVisible();
-        await expect(this.githubButton).toBeVisible();
-        await expect(this.linkedinButton).toBeVisible();
+        for (const button of this.buttons) {
+            await expect(button).toBeVisible();
+        }
+    }
+
+    async validateLogo() {
+        await expect(this.logo).toBeVisible();
     }
 }
 
