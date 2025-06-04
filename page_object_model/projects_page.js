@@ -60,14 +60,11 @@ class ProjectsPage {
         const expectedTitles = [
             'Automation-PyCharm',
             'Automation-Playwright',
-            'Atomation-Cypress',
-            'Atomation-Selenium',
-            'Twitter Bot',
-            'Weather Webapp',
-            'How far...'
+            'Automation-Cypress',
+            'Automation-Selenium',
         ];
 
-        // Verify number of cards
+        // Verify the number of cards
         await expect(cards).toHaveLength(expectedTitles.length);
 
         // Verify card titles
