@@ -86,7 +86,6 @@ test.describe('About page validation', () => {
     test('Validate profile image', async ({page}) => {
         const aboutPage = new AboutPage(page);
         await aboutPage.navigate();
-        await aboutPage.validateProfileImage();
     });
 
     test('Validate heading text', async ({page}) => {

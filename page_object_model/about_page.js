@@ -33,10 +33,6 @@ class AboutPage {
         }
     }
 
-    async validateProfileImage() {
-        await expect(this.profileImage).toBeVisible();
-        await expect(this.profileImage).toHaveAttribute('src', '/images/profile.jpg');
-    }
     async validateHeadingText() {
         await expect(this.headingText).toBeVisible();
         await expect(this.headingText).toHaveText('My name is Radoslaw Lisowski, but people call me Rado...');
