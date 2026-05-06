@@ -56,20 +56,19 @@ class ProjectsPage {
      * Verifies that all expected project titles are present and in correct order
      */
     async validateProjectCardsNumbersAndTitles() {
-        const cards = await this.page.locator('.card-title').all();
+        const cards = this.page.locator('.card-title');
         const expectedTitles = [
+            'APIs That Test Themselves',
             'Automation-PyCharm',
             'Automation-Playwright',
-            'Automation-Cypress',
-            'Automation-Selenium',
         ];
 
         // Verify the number of cards
-        await expect(cards).toHaveLength(expectedTitles.length);
+        await expect(cards).toHaveCount(expectedTitles.length);
 
         // Verify card titles
         for (let i = 0; i < expectedTitles.length; i++) {
-            await expect(cards[i]).toHaveText(expectedTitles[i]);
+            await expect(cards.nth(i)).toHaveText(expectedTitles[i]);
         }
     }
 }
